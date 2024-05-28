@@ -22,6 +22,10 @@ class FormBuilderChoiceChip<T> extends FormBuilderFieldDecoration<T> {
   /// Defaults to 8. The value is always non-negative.
   final double? pressElevation;
 
+  /// A boolean value that determines whether to show the check mark when
+  ///  the chip is selected.
+  final bool showCheckmark;
+
   /// Color to be used for the chip's background, indicating that it is
   /// selected.
   final Color? selectedColor;
@@ -270,6 +274,7 @@ class FormBuilderChoiceChip<T> extends FormBuilderFieldDecoration<T> {
     super.onReset,
     this.alignment = WrapAlignment.start,
     this.avatarBorder = const CircleBorder(),
+    this.showCheckmark = true,
     this.backgroundColor,
     this.crossAxisAlignment = WrapCrossAlignment.start,
     this.direction = Axis.horizontal,
@@ -309,6 +314,7 @@ class FormBuilderChoiceChip<T> extends FormBuilderFieldDecoration<T> {
                   ChoiceChip(
                     label: option,
                     shape: shape,
+                    showCheckmark: showCheckmark,
                     selected: field.value == option.value,
                     onSelected: state.enabled
                         ? (selected) {
